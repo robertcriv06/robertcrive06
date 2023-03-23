@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Niki's Catering </title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+			background-color: #000000;
+			color: #FFFFFF;
+			
+		}
+		
+		header {
+			background-color: #000000;
+			color: #FFFFFF;
+			padding: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			
+        }
+		
+		
+		.logo {
+			font-size: 32px;
+			font-weight: bold;
+		}
+		
+		
+		
+		.nav-menu {
+			list-style: none;
+			display: flex;
+		}
+		
+		.nav-menu li {
+			margin-left: 20px;
+			font-size: 18px;
+		}
+		
+		.nav-menu li a {
+			color: #FFFFFF;
+			text-decoration: none;
+			padding: 10px;
+			border-radius: 5px;
+			transition: background-color 0.5s ease;
+		}
+		
+		.nav-menu li a:hover {
+			background-color: #FFD700;
+			color: #000000;
+		}
+		
+		.hero {
+			background-image: url("https://jooinn.com/images/blur-restaurant-3.png");
+			background-size: cover;
+			background-position: center;
+			height: 500px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			text-align: center;
+		}
+		
+		.hero h1 {
+			font-size: 100px;
+			margin: 0;
+			padding: 0;
+			text-shadow: 2px 2px #000000;
+		}
+		
+		.hero p {
+			font-size: 24px;
+			margin-top: 20px;
+			text-shadow: 2px 2px #000000;
+		}
+		
+		.section {
+			padding: 100px 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+		}
+		
+		.section h2 {
+			font-size: 48px;
+			margin: 0;
+			padding: 0;
+		}
+		
+		.section p {
+			font-size: 24px;
+			margin-top: 20px;
+		}
+		
+		.section ul {
+			list-style: none;
+			padding: 0;
+			margin-top: 50px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		
+		.section li {
+			margin: 20px;
+			width: 300px;
+			height: 400px;
+			background-color: #000000;
+			background-image: url("https://th.bing.com/th/id/OIP.TkMdBQkONimKZiJFXvV1egHaEK?pid=ImgDet&rs=1");
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			font-family: Arial, sans-serif;
+			background-color: #000000;
+			color: #000000;
+		}
+		
+		.section li h3 {
+			font-size: 24px;
+			margin: 0;
+			padding: 0;
+		}
+		
+				.section li p {
+			font-size: 16px;
+			margin-top: 10px;
+		}
+		
+		.section li a {
+			background-color: #000000;
+			color: #FFFFFF;
+			padding: 10px;
+			border-radius: 5px;
+			text-decoration: none;
+			margin-top: 20px;
+			transition: background-color 0.3s ease;
+		}
+		
+		.section li a:hover {
+			background-color: #FFD700;
+			color: #000000;
+		}
+		
+		.footer {
+			background-color: #000000;
+			color: #FFFFFF;
+			padding: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		
+		.footer p {
+			margin: 0;
+			padding: 0;
+			font-size: 18px;
+			text-align: center;
+		}
+		
+		.footer a {
+			color: #FFFFFF;
+			text-decoration: none;
+			margin-left: 10px;
+			transition: color 0.3s ease;
+		}
+		
+		.footer a:hover {
+			color: #FFD700;
+		}
+		
+		.active {
+			background-color: #FFD700;
+			color: #000000;
+		}
+	</style>
+	<script>
+		window.addEventListener("load", function() {
+			// Get the current URL
+			var currentUrl = window.location.href;
+
+			// Get the navigation links
+			var navLinks = document.querySelectorAll(".nav-menu li a");
+
+			// Loop through each navigation link
+			navLinks.forEach(function(link) {
+				// Get the link URL
+				var linkUrl = link.getAttribute("href");
+
+				// If the link URL matches the current URL, add the active class
+				if (currentUrl.indexOf(linkUrl) !== -1) {
+					link.classList.add("active");
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<header>
+		<div class="logo">Niki's Catering</div>
+		<ul class="nav-menu">
+			<li><a href="website.html" target="_self">Home</a></li>
+			<li><a href="about.html" target="_self">About</a></li>
+			<li><a href="menu.html" target="_self">Menu</a></li>
+			<li><a href="gallery.html" target="_self">Gallery</a></li>
+            <li><a href="contact.html" target="_self">Contact</a></li>
+		</ul>
+		</ul>
+	</header>
+	<section class="hero">
+		<h1>Welcome to Niki's Catering</h1>
+		<p>Delicious food for all occasions</p>
+	</section>
+	<section class="section">
+		<h2>About Us</h2>
+		<p>We are a team of experienced chefs who are passionate about food and creating memorable dining experiences for our customers.</p>
+		<ul>
+			<li>
+				<h3>Creative Menu</h3>
+				<p>We offer a range of creative menu options to suit any occasion and taste.</p>
+				<a href="#">Learn More</a>
+			</li>
+			<li>
+				<h3>Quality Ingredients</h3>
+				<p>We use only the freshest and highest quality ingredients to create our dishes.</p>
+				<a href="#">Learn More</a>
+			</li>
+			<li>
+				<h3>Professional Service</h3>
+				<p>Our team is dedicated to providing professional and attentive service to ensure your event is a success.</p>
+				<a href="#">Learn More</a>
+			</li>
+		</ul>
+		
+	</section>
+	<footer class="footer">
+		<p>&copy; 2023 Catering. All rights reserved.</p>
+		<a href="#">Privacy Policy</a>
+		<a href="#">Terms of Service</a>
+	</footer>
+</body>
+
+
+
+
+
+</html>
+

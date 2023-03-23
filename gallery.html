@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Niki's Catering </title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+			background-color: #000000;
+			color: #FFFFFF;
+			
+		}
+		  body {
+        margin: 0px;
+        padding: 0;
+	    
+      }
+
+      }
+      .header-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+        height: 80px;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      h1, p {
+        margin: 0;
+        text-align: center;
+      }
+		
+		header {
+			background-color: #000000;
+			color: #FFFFFF;
+			padding: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+		
+		.logo {
+			font-size: 32px;
+			font-weight: bold;
+		}
+		
+		.nav-menu {
+			list-style: none;
+			display: flex;
+		}
+		
+		.nav-menu li {
+			margin-left: 20px;
+			font-size: 18px;
+		}
+		
+		.nav-menu li a {
+			color: #FFFFFF;
+			text-decoration: none;
+			padding: 10px;
+			border-radius: 5px;
+			transition: background-color 0.5s ease;
+		}
+		
+		.nav-menu li a:hover {
+			background-color: #FFD700;
+			color: #000000;
+		}
+		
+		
+	  
+	  .active {
+			background-color: #FFD700;
+			color: #000000;
+		}
+		
+		.slider-container {
+  position: relative;
+  width: 70%;
+  height: 600px;
+  border: 2px solid white;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.slider-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('image1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: opacity 1s ease-in-out;
+}
+
+.slider-buttons {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.slider-button {
+  background-color: #FFD700;
+  color: #000000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.slider-button:hover {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+.class1 {
+  margin-bottom: 20px; /* Adds a 20px margin below the class1 div */
+}
+
+.class2 {
+  padding-top: 10px; /* Adds a 10px padding above the class2 div */
+}
+
+.footer {
+			background-color: #000000;
+			color: #FFFFFF;
+			padding: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		
+		.footer p {
+			margin: 0;
+			padding: 0;
+			font-size: 18px;
+			text-align: center;
+		}
+		
+		.footer a {
+			color: #FFFFFF;
+			text-decoration: none;
+			margin-left: 10px;
+			transition: color 0.3s ease;
+		}
+		
+		.footer a:hover {
+			color: #FFD700;
+		}
+		
+
+      </style>
+	  <script>
+		window.addEventListener("load", function() {
+			// Get the current URL
+			var currentUrl = window.location.href;
+
+			// Get the navigation links
+			var navLinks = document.querySelectorAll(".nav-menu li a");
+
+			// Loop through each navigation link
+			navLinks.forEach(function(link) {
+				// Get the link URL
+				var linkUrl = link.getAttribute("href");
+
+				// If the link URL matches the current URL, add the active class
+				if (currentUrl.indexOf(linkUrl) !== -1) {
+					link.classList.add("active");
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+		<header>
+		<div class="logo">Niki's Catering</div>
+		<ul class="nav-menu">
+			<li><a href="website.html" target="_self">Home</a></li>
+			<li><a href="about.html" target="_self">About</a></li>
+			<li><a href="menu.html" target="_self">Menu</a></li>
+			<li><a href="gallery.html" target="_self">Gallery</a></li>
+            <li><a href="contact.html" target="_self">Contact</a></li>
+		</ul>
+		</header>
+		<div class="class1"></div>
+<div class="class2"></div>
+
+		
+	<div class="slider-container">
+  <div class="slider-image"></div>
+  <div class="slider-buttons">
+    <button class="slider-button" onclick="prevImage()">Prev</button>
+    <button class="slider-button" onclick="nextImage()">Next</button>
+  </div>
+</div>
+<script>
+	var images = ['https://cdn.britannica.com/36/123536-050-95CB0C6E/Variety-fruits-vegetables.jpg', 'https://imageio.forbes.com/specials-images/imageserve/882906386/0x0.jpg?format=jpg&width=1200', 'https://cdn.pixabay.com/photo/2016/06/29/03/14/honey-1480354_960_720.jpg', 'https://www.publicdomainpictures.net/pictures/320000/nahled/background-image.png'];
+var currentIndex = 0;
+var sliderImage = document.querySelector('.slider-image');
+var prevButton = document.querySelector('#prevButton');
+var nextButton = document.querySelector('#nextButton');
+
+function showImage(index) {
+  sliderImage.style.backgroundImage = `url('${images[index]}')`;
+}
+
+function prevImage() {
+  currentIndex--;
+  if (currentIndex < 0) {
+    currentIndex = images.length - 1;
+  }
+  showImage(currentIndex);
+}
+
+function nextImage() {
+  currentIndex++;
+  if (currentIndex >= images.length) {
+    currentIndex = 0;
+  }
+  showImage(currentIndex);
+}
+
+prevButton.addEventListener('click', prevImage);
+nextButton.addEventListener('click', nextImage);
+
+showImage(currentIndex);
+
+setInterval(nextImage, 5000);
+
+
+	</script>
+<footer class="footer">
+		<p>&copy; 2023 Catering. All rights reserved.</p>
+		<a href="#">Privacy Policy</a>
+		<a href="#">Terms of Service</a>
+	</footer>
+	
+	</html>
+	
+
+	

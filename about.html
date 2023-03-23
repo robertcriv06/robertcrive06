@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Niki's Catering </title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+			background-color: #000000;
+			color: #FFFFFF;
+		}
+		
+		header {
+			background-color: #000000;
+			color: #FFFFFF;
+			padding: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+		
+		.logo {
+			font-size: 32px;
+			font-weight: bold;
+		}
+		
+		.nav-menu {
+			list-style: none;
+			display: flex;
+		}
+		
+		.nav-menu li {
+			margin-left: 20px;
+			font-size: 18px;
+		}
+		
+		.nav-menu li a {
+			color: #FFFFFF;
+			text-decoration: none;
+			padding: 10px;
+			border-radius: 5px;
+			transition: background-color 0.5s ease;
+		}
+		
+		.nav-menu li a:hover {
+			background-color: #FFD700;
+			color: #000000;
+		}
+		
+		.active {
+			background-color: #FFD700;
+			color: #000000;
+		}
+		
+		.footer {
+			background-color: #000000;
+			color: #FFFFFF;
+			padding: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		
+		.footer p {
+			margin: 0;
+			padding: 0;
+			font-size: 18px;
+			text-align: center;
+		}
+		
+		.footer a {
+			color: #FFFFFF;
+			text-decoration: none;
+			margin-left: 10px;
+			transition: color 0.3s ease;
+		}
+		
+		.footer a:hover {
+			color: #FFD700;
+		}
+		
+		#my-video {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: block;
+}
+
+		
+		</style>
+		<script>
+		window.addEventListener("load", function() {
+			// Get the current URL
+			var currentUrl = window.location.href;
+
+			// Get the navigation links
+			var navLinks = document.querySelectorAll(".nav-menu li a");
+
+			// Loop through each navigation link
+			navLinks.forEach(function(link) {
+				// Get the link URL
+				var linkUrl = link.getAttribute("href");
+
+				// If the link URL matches the current URL, add the active class
+				if (currentUrl.indexOf(linkUrl) !== -1) {
+					link.classList.add("active");
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<header>
+		<div class="logo">Niki's Catering</div>
+		<ul class="nav-menu">
+			<li><a href="website.html" target="_self">Home</a></li>
+			<li><a href="about.html" target="_self">About</a></li>
+			<li><a href="menu.html" target="_self">Menu</a></li>
+			<li><a href="gallery.html" target="_self">Gallery</a></li>
+            <li><a href="contact.html" target="_self">Contact</a></li>
+		</ul>
+		
+		</header>
+			<video id="my-video" controls>
+  <source src="D:\Games\New folder\FirstLevelMan\Qatari Royal Wedding That Will Blow Your Minds 🤩.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<script>
+const video = document.getElementById('my-video');
+video.addEventListener('click', function() {
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
+});
+
+</script>
+		
+		<footer class="footer">
+		<p>&copy; 2023 Catering. All rights reserved.</p>
+		<a href="#">Privacy Policy</a>
+		<a href="#">Terms of Service</a>
+	</footer>
+	
+	</html>
