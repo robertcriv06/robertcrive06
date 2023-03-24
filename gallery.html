@@ -26,6 +26,7 @@
         height: 80px;
         padding: 20px;
         box-sizing: border-box;
+		
       }
       h1, p {
         margin: 0;
@@ -78,8 +79,8 @@
 		
 		.slider-container {
   position: relative;
-  width: 70%;
-  height: 600px;
+  width: 90%;
+  height: 800px;
   border: 2px solid white;
   margin: auto;
   display: flex;
@@ -94,39 +95,60 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('image1.jpg');
+  background-image: url("");
   background-repeat: no-repeat;
   background-size: cover;
   transition: opacity 1s ease-in-out;
+
 }
 
-.slider-buttons {
+
+.slider-arrow {
   position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.slider-button {
-  background-color: #FFD700;
-  color: #000000;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0px;
+  height: 0px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: white;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin: 0 10px;
+  outline: none;
   cursor: pointer;
+  transition: background-color 0.5s ease;
 }
 
-.slider-button:hover {
-  background-color: #FFFFFF;
-  color: #000000;
+.slider-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.8);
 }
+
+.slider-arrow-left {
+  left: 20px;
+ 
+}
+
+.slider-arrow-right {
+  right: 20px;
+
+}
+
 
 .class1 {
   margin-bottom: 20px; /* Adds a 20px margin below the class1 div */
 }
 
 .class2 {
+  padding-top: 10px; /* Adds a 10px padding above the class2 div */
+}
+
+.class3 {
+  margin-bottom: 20px; /* Adds a 20px margin below the class1 div */
+}
+
+.class4 {
   padding-top: 10px; /* Adds a 10px padding above the class2 div */
 }
 
@@ -156,6 +178,14 @@
 		.footer a:hover {
 			color: #FFD700;
 		}
+		
+			#my-video {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: block;
+}
+
 		
 
       </style>
@@ -193,24 +223,36 @@
 		</header>
 		<div class="class1"></div>
 <div class="class2"></div>
-
+<div class="class3"></div>
+<div class="class4"></div>
 		
 	<div class="slider-container">
   <div class="slider-image"></div>
-  <div class="slider-buttons">
-    <button class="slider-button" onclick="prevImage()">Prev</button>
-    <button class="slider-button" onclick="nextImage()">Next</button>
+  <div class="slider-arrow slider-arrow-left">
+    <img src="D:\Games\Adriana's Website\Picture's\Left-ArrowImage.png" alt="Left arrow">
+  </div>
+  <div class="slider-arrow slider-arrow-right">
+    <img src="D:\Games\Adriana's Website\Picture's\Right-ArrowSlider.png" alt="Right arrow">
   </div>
 </div>
-<script>
-	var images = ['https://cdn.britannica.com/36/123536-050-95CB0C6E/Variety-fruits-vegetables.jpg', 'https://imageio.forbes.com/specials-images/imageserve/882906386/0x0.jpg?format=jpg&width=1200', 'https://cdn.pixabay.com/photo/2016/06/29/03/14/honey-1480354_960_720.jpg', 'https://www.publicdomainpictures.net/pictures/320000/nahled/background-image.png'];
-var currentIndex = 0;
-var sliderImage = document.querySelector('.slider-image');
-var prevButton = document.querySelector('#prevButton');
-var nextButton = document.querySelector('#nextButton');
 
-function showImage(index) {
-  sliderImage.style.backgroundImage = `url('${images[index]}')`;
+
+
+<script>
+
+  var images = ["https://cdn.britannica.com/36/123536-050-95CB0C6E/Variety-fruits-vegetables.jpg","https://imageio.forbes.com/specials-images/imageserve/882906386/0x0.jpg?format=jpg&width=1200","https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1226295832.jpg"
+];
+var currentIndex = 0;
+
+var sliderImage = document.querySelector(".slider-image");
+sliderImage.style.backgroundImage = `url('${images[currentIndex]}')`;
+
+function nextImage() {
+  currentIndex++;
+  if (currentIndex >= images.length) {
+    currentIndex = 0;
+  }
+  sliderImage.style.backgroundImage = `url('${images[currentIndex]}')`;
 }
 
 function prevImage() {
@@ -218,26 +260,45 @@ function prevImage() {
   if (currentIndex < 0) {
     currentIndex = images.length - 1;
   }
-  showImage(currentIndex);
+  sliderImage.style.backgroundImage = `url('${images[currentIndex]}')`;
 }
 
-function nextImage() {
-  currentIndex++;
-  if (currentIndex >= images.length) {
-    currentIndex = 0;
+document.addEventListener("keydown", function(event) {
+  if (event.code === "ArrowRight") {
+    nextImage();
+  } else if (event.code === "ArrowLeft") {
+    prevImage();
   }
-  showImage(currentIndex);
-}
+});
 
-prevButton.addEventListener('click', prevImage);
-nextButton.addEventListener('click', nextImage);
+var sliderArrowLeft = document.querySelector(".slider-arrow-left");
+sliderArrowLeft.addEventListener("click", prevImage);
 
-showImage(currentIndex);
+var sliderArrowRight = document.querySelector(".slider-arrow-right");
+sliderArrowRight.addEventListener("click", nextImage);
 
-setInterval(nextImage, 5000);
+</script>
+
+
 
 
 	</script>
+	
+			<video id="my-video" controls>
+  <source src="D:\Games\New folder\FirstLevelMan\Qatari Royal Wedding That Will Blow Your Minds 🤩.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<script>
+const video = document.getElementById('my-video');
+video.addEventListener('click', function() {
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
+});
+
+</script>
 <footer class="footer">
 		<p>&copy; 2023 Catering. All rights reserved.</p>
 		<a href="#">Privacy Policy</a>
